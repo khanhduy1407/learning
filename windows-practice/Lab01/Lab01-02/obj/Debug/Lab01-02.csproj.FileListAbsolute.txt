@@ -1,0 +1,8 @@
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\bin\Debug\Lab01-02.exe.config
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\bin\Debug\Lab01-02.exe
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\bin\Debug\Lab01-02.pdb
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\obj\Debug\Lab01-02.csproj.AssemblyReference.cache
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\obj\Debug\Lab01-02.csproj.SuggestedBindingRedirects.cache
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\obj\Debug\Lab01-02.csproj.CoreCompileInputs.cache
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\obj\Debug\Lab01-02.exe
+D:\Workspace\Learning\windows-practice\Lab01\Lab01-02\obj\Debug\Lab01-02.pdb
