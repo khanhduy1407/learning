@@ -10,6 +10,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.security.MessageDigest;
 
+/**
+ * Bài thực hành số 7: Mã hóa MD5
+ *
+ * @author Nguyễn Khánh Duy (2180602080)
+ */
 public class FormLab07 extends JFrame implements ActionListener {
   private final JTextField usernameField;
   private final JPasswordField passwordField;
