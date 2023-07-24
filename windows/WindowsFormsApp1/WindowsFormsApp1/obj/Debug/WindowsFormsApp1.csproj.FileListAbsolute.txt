@@ -46,3 +46,5 @@ D:\Workspace\Learning\windows\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Entity
 D:\Workspace\Learning\windows\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFramework.SqlServer.xml
 D:\Workspace\Learning\windows\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmMain.resources
 D:\Workspace\Learning\windows\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+D:\Workspace\Learning\windows\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Transactions.Workflows.dll
+D:\Workspace\Learning\windows\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmKhachHang.resources

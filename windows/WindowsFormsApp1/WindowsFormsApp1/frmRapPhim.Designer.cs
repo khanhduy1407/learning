@@ -38,11 +38,10 @@
       this.btnKetThuc = new System.Windows.Forms.Button();
       this.label2 = new System.Windows.Forms.Label();
       this.lbTenKH = new System.Windows.Forms.Label();
-      this.lbSdt = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.txtTenKH = new System.Windows.Forms.TextBox();
-      this.txtSdt = new System.Windows.Forms.TextBox();
       this.dtgvInfo = new System.Windows.Forms.DataGridView();
+      this.button1 = new System.Windows.Forms.Button();
+      this.cbKhachHang = new System.Windows.Forms.ComboBox();
       this.panel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dtgvInfo)).BeginInit();
       this.SuspendLayout();
@@ -102,12 +101,6 @@
       this.lbTenKH.ForeColor = System.Drawing.SystemColors.MenuHighlight;
       this.lbTenKH.Name = "lbTenKH";
       // 
-      // lbSdt
-      // 
-      resources.ApplyResources(this.lbSdt, "lbSdt");
-      this.lbSdt.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-      this.lbSdt.Name = "lbSdt";
-      // 
       // panel1
       // 
       this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -115,30 +108,34 @@
       resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
       // 
-      // txtTenKH
-      // 
-      resources.ApplyResources(this.txtTenKH, "txtTenKH");
-      this.txtTenKH.Name = "txtTenKH";
-      // 
-      // txtSdt
-      // 
-      resources.ApplyResources(this.txtSdt, "txtSdt");
-      this.txtSdt.Name = "txtSdt";
-      // 
       // dtgvInfo
       // 
       this.dtgvInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       resources.ApplyResources(this.dtgvInfo, "dtgvInfo");
       this.dtgvInfo.Name = "dtgvInfo";
       // 
+      // button1
+      // 
+      this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.button1.ForeColor = System.Drawing.Color.Black;
+      resources.ApplyResources(this.button1, "button1");
+      this.button1.Name = "button1";
+      this.button1.UseVisualStyleBackColor = false;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // cbKhachHang
+      // 
+      this.cbKhachHang.FormattingEnabled = true;
+      resources.ApplyResources(this.cbKhachHang, "cbKhachHang");
+      this.cbKhachHang.Name = "cbKhachHang";
+      // 
       // frmRapPhim
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.txtSdt);
-      this.Controls.Add(this.txtTenKH);
+      this.Controls.Add(this.cbKhachHang);
+      this.Controls.Add(this.button1);
       this.Controls.Add(this.panel1);
-      this.Controls.Add(this.lbSdt);
       this.Controls.Add(this.lbTenKH);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.btnKetThuc);
@@ -168,11 +165,10 @@
         private System.Windows.Forms.Button btnKetThuc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbTenKH;
-        private System.Windows.Forms.Label lbSdt;
         private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.TextBox txtTenKH;
-    private System.Windows.Forms.TextBox txtSdt;
     private System.Windows.Forms.DataGridView dtgvInfo;
+    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.ComboBox cbKhachHang;
   }
 }
 

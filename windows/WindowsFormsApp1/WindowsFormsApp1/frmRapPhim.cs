@@ -10,13 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Models;
+using System.Transactions;
 
 namespace WindowsFormsApp1
 {
   public partial class frmRapPhim : Form
   {
-    ModelRapPhim dbContext = new ModelRapPhim();
-
     private double tongTien = 0;
 
     CultureInfo culture = new CultureInfo("vi-VN");
@@ -28,21 +27,35 @@ namespace WindowsFormsApp1
       LoadDtgvCollumnName();
       LoadDanhsachHoaDon();
       LoadDanhSachGheDaChon();
+      LoadKhachHang();
+    }
+
+    private void LoadKhachHang()
+    {
+      cbKhachHang.ValueMember = "idKhachHang";
+      cbKhachHang.DisplayMember = "Ten";
+      using (var dbContext = new ModelRapPhim())
+      {
+        cbKhachHang.DataSource = dbContext.KhachHangs.ToList();
+      }
     }
 
     private void LoadDanhSachGheDaChon()
     {
       // Lấy danh sách các ghế đã chọn từ database
-      List<ChiTietHoaDon> dsGheDaChon = dbContext.ChiTietHoaDons.ToList();
-
-      // Duyệt qua từng ghế đã chọn
-      foreach (ChiTietHoaDon ghe in dsGheDaChon)
+      using (var dbContext = new ModelRapPhim())
       {
-        // Tìm button có tên là "btn" + số ghế đã chọn
-        Button btnGhe = (Button)pnlManAnh.Controls.Find("btn" + ghe.TenGhe, false).FirstOrDefault();
+        List<ChiTietHoaDon> dsGheDaChon = dbContext.ChiTietHoaDons.ToList();
 
-        // Đổi màu của button đó sang màu vàng
-        btnGhe.BackColor = Color.Yellow;
+        // Duyệt qua từng ghế đã chọn
+        foreach (ChiTietHoaDon ghe in dsGheDaChon)
+        {
+          // Tìm button có tên là "btn" + số ghế đã chọn
+          Button btnGhe = (Button)pnlManAnh.Controls.Find("btn" + ghe.TenGhe, false).FirstOrDefault();
+
+          // Đổi màu của button đó sang màu vàng
+          btnGhe.BackColor = Color.Yellow;
+        }
       }
     }
 
@@ -132,82 +145,94 @@ namespace WindowsFormsApp1
 
     private void btnChon_Click(object sender, EventArgs e)
     {
-      if (txtTenKH.Text == "" || txtSdt.Text == "")
-      {
-        MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!");
-        return;
-      }
-      else if (txtSdt.Text.Length != 10)
-      {
-        MessageBox.Show("Số điện thoại không hợp lệ!!");
-        return;
-      }
-      else if (LaySoGhe() == "" || tongTien == 0 || txtTongTien.Text == "0")
-      {
-        MessageBox.Show("Vui lòng chọn ghế!!");
-        return;
-      }
-      else
-      {
+      //if (txtTenKH.Text == "" || txtSdt.Text == "")
+      //{
+      //  MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!");
+      //  return;
+      //}
+      //else if (txtSdt.Text.Length != 10)
+      //{
+      //  MessageBox.Show("Số điện thoại không hợp lệ!!");
+      //  return;
+      //}
+      //else if (LaySoGhe() == "" || tongTien == 0 || txtTongTien.Text == "0")
+      //{
+      //  MessageBox.Show("Vui lòng chọn ghế!!");
+      //  return;
+      //}
+      //else
+      //{
         //dtgvInfo.Rows.Add(txtTenKH.Text, txtSdt.Text, LaySoGhe(), tongTien.ToString("c0", culture));
 
-        PrintBill();
+        // PrintBill();
 
-        // Lưu thông tin khách hàng vào database nếu chưa có và tự động tăng idKhachHang 
-        KhachHang kh = dbContext.KhachHangs.Where(k => k.SDT == txtSdt.Text).FirstOrDefault();
-        if (kh == null)
+        try
         {
-          kh = new KhachHang();
-          kh.Ten = txtTenKH.Text;
-          kh.SDT = txtSdt.Text;
-          dbContext.KhachHangs.Add(kh);
-          dbContext.SaveChanges();
-        }
-
-        // Lưu hóa đơn vào database
-        HoaDon hd = new HoaDon();
-        hd.idKhachHang = kh.idKhachHang;
-        hd.TongTien = (decimal)tongTien;
-        dbContext.HoaDons.Add(hd);
-        dbContext.SaveChanges();
-
-        // Lưu chi tiết hóa đơn vào database
-        // Lấy từng số ghế trong chuỗi số ghế đã chọn và lưu vào database
-        // nếu số ghế đã chọn là "1" thì sẽ lưu vào database 1 dòng có số ghế là "1"
-        // nếu số ghế đã chọn là "2, 3, 5" thì sẽ lưu vào database 3 dòng có số ghế là "2", "3", "5"
-        string[] soGhe = LaySoGhe().Split(',');
-        foreach (string item in soGhe)
-        {
-          ChiTietHoaDon cthd = new ChiTietHoaDon();
-          cthd.idHoaDon = hd.idHoaDon;
-          cthd.TenGhe = int.Parse(item);
-          dbContext.ChiTietHoaDons.Add(cthd);
-          dbContext.SaveChanges();
-        }
-
-        LoadDanhsachHoaDon();
-
-        txtTenKH.Text = "";
-        txtSdt.Text = "";
-        txtTongTien.Text = "0";
-        tongTien = 0;
-
-        foreach (Button btn in pnlManAnh.Controls.OfType<Button>())
-        {
-          if (btn.BackColor == Color.Blue)
+          using (var dbContext = new ModelRapPhim())
           {
-            btn.BackColor = Color.Yellow;
+            // Lưu thông tin khách hàng vào database nếu chưa có và tự động tăng idKhachHang 
+            int idKhachHang = int.Parse(cbKhachHang.SelectedValue.ToString());
+            KhachHang kh = dbContext.KhachHangs.Find(idKhachHang);
+            //if (kh == null)
+            //{
+            //  kh = new KhachHang();
+            //  kh.Ten = txtTenKH.Text;
+            //  kh.SDT = txtSdt.Text;
+            //  dbContext.KhachHangs.Add(kh);
+            //}
+
+            // Lưu hóa đơn vào database
+            HoaDon hd = new HoaDon();
+            hd.KhachHang = kh;
+            hd.TongTien = (decimal)tongTien;
+            dbContext.HoaDons.Add(hd);
+
+            // Lưu chi tiết hóa đơn vào database
+            // Lấy từng số ghế trong chuỗi số ghế đã chọn và lưu vào database
+            // nếu số ghế đã chọn là "1" thì sẽ lưu vào database 1 dòng có số ghế là "1"
+            // nếu số ghế đã chọn là "2, 3, 5" thì sẽ lưu vào database 3 dòng có số ghế là "2", "3", "5"
+            string[] soGhe = LaySoGhe().Split(',');
+            foreach (string item in soGhe)
+            {
+              ChiTietHoaDon cthd = new ChiTietHoaDon();
+              cthd.HoaDon = hd;
+              cthd.TenGhe = int.Parse(item);
+              dbContext.ChiTietHoaDons.Add(cthd);
+            }
+            
+            dbContext.SaveChanges();
+
+            LoadDanhsachHoaDon();
+
+            //txtTenKH.Text = "";
+            //txtSdt.Text = "";
+            txtTongTien.Text = "0";
+            tongTien = 0;
+
+            foreach (Button btn in pnlManAnh.Controls.OfType<Button>())
+            {
+              if (btn.BackColor == Color.Blue)
+              {
+                btn.BackColor = Color.Yellow;
+              }
+            }
           }
+        } catch (Exception ex)
+        {
+          MessageBox.Show(ex.Message);
         }
-      }
+      //}
     }
 
     private void LoadDanhsachHoaDon()
     {
       dtgvInfo.Rows.Clear();
-      foreach (HoaDon item in dbContext.HoaDons.ToList())
-      {
-        dtgvInfo.Rows.Add(item.KhachHang.Ten, item.KhachHang.SDT, item.TongTien.ToString("c0", culture));
+      using (var dbContext = new ModelRapPhim())
+        {
+        foreach (HoaDon item in dbContext.HoaDons.ToList())
+        {
+          dtgvInfo.Rows.Add(item.KhachHang.Ten, item.KhachHang.SDT, item.TongTien.ToString("c0", culture));
+        }
       }
     }
 
@@ -244,8 +269,8 @@ namespace WindowsFormsApp1
       int offset = 40;
 
       graphic.DrawString("HÓA ĐƠN THANH TOÁN", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY);
-      graphic.DrawString("Tên khách hàng: " + txtTenKH.Text, font, new SolidBrush(Color.Black), startX, startY + offset);
-      graphic.DrawString("Số điện thoại: " + txtSdt.Text, font, new SolidBrush(Color.Black), startX, startY + offset * 2);
+      //graphic.DrawString("Tên khách hàng: " + txtTenKH.Text, font, new SolidBrush(Color.Black), startX, startY + offset);
+      //graphic.DrawString("Số điện thoại: " + txtSdt.Text, font, new SolidBrush(Color.Black), startX, startY + offset * 2);
       graphic.DrawString("Số ghế: " + LaySoGhe(), font, new SolidBrush(Color.Black), startX, startY + offset * 3);
       graphic.DrawString("Tổng tiền: " + tongTien.ToString("c0", culture), font, new SolidBrush(Color.Black), startX, startY + offset * 4);
 
@@ -282,8 +307,8 @@ namespace WindowsFormsApp1
     {
       if (MessageBox.Show("Bạn có chắc muốn hủy chọn không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
       {
-        txtTenKH.Text = "";
-        txtSdt.Text = "";
+        //txtTenKH.Text = "";
+        //txtSdt.Text = "";
         txtTongTien.Text = "0";
         tongTien = 0;
 
@@ -308,6 +333,19 @@ namespace WindowsFormsApp1
       {
         e.Cancel = true;
       }
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      frmKhachHang frm = new frmKhachHang(LaySoGhe());
+      frm.ThayDoiThongTin += Frm_ThayDoiThongTin;
+      frm.ShowDialog();
+    }
+
+    private void Frm_ThayDoiThongTin(string ten)
+    {
+      LoadKhachHang();
+      MessageBox.Show(ten);
     }
   }
 }
