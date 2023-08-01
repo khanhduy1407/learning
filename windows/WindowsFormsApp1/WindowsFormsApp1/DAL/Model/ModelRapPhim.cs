@@ -7,6 +7,21 @@ namespace WindowsFormsApp1.Models
 {
   public partial class ModelRapPhim : DbContext
   {
+    private static ModelRapPhim instance;
+    public static ModelRapPhim Instance
+    {
+      get
+      {
+        if (instance == null)
+          instance = new ModelRapPhim();
+        return instance;
+      }
+      private set
+      {
+        instance = value;
+      }
+    }
+
     public ModelRapPhim()
         : base("name=ModelRapPhim")
     {

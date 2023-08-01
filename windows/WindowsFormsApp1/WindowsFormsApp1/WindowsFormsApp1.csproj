@@ -58,41 +58,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmKhachHang.cs">
+    <Compile Include="BUS\ChiTietHoaDonBus.cs" />
+    <Compile Include="BUS\HoaDonBus.cs" />
+    <Compile Include="BUS\KhachHangBus.cs" />
+    <Compile Include="DAL\DataChiTietHoaDonService.cs" />
+    <Compile Include="DAL\DataHoaDonService.cs" />
+    <Compile Include="DAL\DataKhachHangService.cs" />
+    <Compile Include="UI\frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmKhachHang.Designer.cs">
+    <Compile Include="UI\frmKhachHang.Designer.cs">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="UI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="UI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRapPhim.cs">
+    <Compile Include="UI\frmRapPhim.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRapPhim.Designer.cs">
+    <Compile Include="UI\frmRapPhim.Designer.cs">
       <DependentUpon>frmRapPhim.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ChiTietHoaDon.cs" />
-    <Compile Include="Models\HoaDon.cs" />
-    <Compile Include="Models\KhachHang.cs" />
-    <Compile Include="Models\ModelRapPhim.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="DAL\Model\ChiTietHoaDon.cs" />
+    <Compile Include="DAL\Model\HoaDon.cs" />
+    <Compile Include="DAL\Model\KhachHang.cs" />
+    <Compile Include="DAL\Model\ModelRapPhim.cs" />
+    <Compile Include="DAL\Model\sysdiagram.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmKhachHang.resx">
+    <EmbeddedResource Include="UI\frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="UI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRapPhim.dje.resx">
+    <EmbeddedResource Include="UI\frmRapPhim.dje.resx">
       <DependentUpon>frmRapPhim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRapPhim.resx">
+    <EmbeddedResource Include="UI\frmRapPhim.resx">
       <DependentUpon>frmRapPhim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

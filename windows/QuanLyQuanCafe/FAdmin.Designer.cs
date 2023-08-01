@@ -51,6 +51,7 @@
       this.tpTable = new System.Windows.Forms.TabPage();
       this.panel11 = new System.Windows.Forms.Panel();
       this.panel20 = new System.Windows.Forms.Panel();
+      this.txbTableStatus = new System.Windows.Forms.TextBox();
       this.label10 = new System.Windows.Forms.Label();
       this.panel21 = new System.Windows.Forms.Panel();
       this.txbTableName = new System.Windows.Forms.TextBox();
@@ -125,7 +126,6 @@
       this.btnFirstBillPage = new System.Windows.Forms.Button();
       this.dtgvBill = new System.Windows.Forms.DataGridView();
       this.tcAdmin = new System.Windows.Forms.TabControl();
-      this.txbTableStatus = new System.Windows.Forms.TextBox();
       this.tpAccount.SuspendLayout();
       this.panel25.SuspendLayout();
       this.panel26.SuspendLayout();
@@ -385,6 +385,14 @@
       this.panel20.Name = "panel20";
       this.panel20.Size = new System.Drawing.Size(277, 44);
       this.panel20.TabIndex = 4;
+      // 
+      // txbTableStatus
+      // 
+      this.txbTableStatus.Location = new System.Drawing.Point(100, 13);
+      this.txbTableStatus.Name = "txbTableStatus";
+      this.txbTableStatus.ReadOnly = true;
+      this.txbTableStatus.Size = new System.Drawing.Size(174, 20);
+      this.txbTableStatus.TabIndex = 2;
       // 
       // label10
       // 
@@ -918,7 +926,7 @@
       // 
       // btnViewBill
       // 
-      this.btnViewBill.Location = new System.Drawing.Point(282, 1);
+      this.btnViewBill.Location = new System.Drawing.Point(287, 1);
       this.btnViewBill.Name = "btnViewBill";
       this.btnViewBill.Size = new System.Drawing.Size(75, 23);
       this.btnViewBill.TabIndex = 2;
@@ -1097,14 +1105,6 @@
       this.tcAdmin.SelectedIndex = 0;
       this.tcAdmin.Size = new System.Drawing.Size(658, 439);
       this.tcAdmin.TabIndex = 0;
-      // 
-      // txbTableStatus
-      // 
-      this.txbTableStatus.Location = new System.Drawing.Point(100, 13);
-      this.txbTableStatus.Name = "txbTableStatus";
-      this.txbTableStatus.ReadOnly = true;
-      this.txbTableStatus.Size = new System.Drawing.Size(174, 20);
-      this.txbTableStatus.TabIndex = 2;
       // 
       // FAdmin
       // 

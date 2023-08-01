@@ -17,7 +17,7 @@ namespace QuanLyQuanCafe
 {
   public partial class FTableManager : Form
   {
-    private string FormName = "Phần mềm quản lý quán cafe";
+    private string FormName = "Phần mềm quản lý quán cafe - D3 Team";
     
     private Account loginAccount;
 

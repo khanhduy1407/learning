@@ -341,13 +341,12 @@ begin
 	declare @selectRows int = @pageRows
 	declare @exceptRows int = (@page - 1) * @pageRows
 
-	;with BillShow as (
-		select b.id as [Mã đơn], t.name as [Tên bàn], b.totalPrice as [Tổng tiền], DateCheckIn as [Ngày vào], DateCheckOut as [Ngày ra], discount as [Giảm giá]
-		from dbo.Bill as b, dbo.TableFood as t
-		where t.id = b.idTable and DateCheckIn >= @checkIn and DateCheckIn <= @checkOut and b.status = 1
-	)
-
-	select top (@selectRows) * from BillShow where [Mã đơn] not in (select top (@exceptRows) [Mã đơn] from BillShow)
+  -- sắp xếp id giảm dần
+	select b.id as [Mã đơn], t.name as [Tên bàn], b.totalPrice as [Tổng tiền], DateCheckIn as [Ngày vào], DateCheckOut as [Ngày ra], discount as [Giảm giá]
+	from dbo.Bill as b, dbo.TableFood as t
+	where t.id = b.idTable and DateCheckIn >= @checkIn and DateCheckIn <= @checkOut and b.status = 1
+	order by [Mã đơn] desc
+	offset @exceptRows rows fetch next @selectRows rows only
 end
 go
 -- EXEC dbo.USP_GetListBillByDateAndPage @checkIn = '2023-06-01', @checkOut = '2023-07-31', @page = 9
@@ -358,16 +357,6 @@ create proc USP_GetNumBillByDate
 as
 begin
 	select count(*)
-	from dbo.Bill as b, dbo.TableFood as t
-	where t.id = b.idTable and DateCheckIn >= @checkIn and DateCheckIn <= @checkOut and b.status = 1
-end
-go
-
-create proc USP_GetListBillByDateForReport
-@checkIn date, @checkOut date
-as
-begin
-	select t.name, b.totalPrice, DateCheckIn, DateCheckOut, discount
 	from dbo.Bill as b, dbo.TableFood as t
 	where t.id = b.idTable and DateCheckIn >= @checkIn and DateCheckIn <= @checkOut and b.status = 1
 end
