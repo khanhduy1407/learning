@@ -44,6 +44,8 @@
       this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.panel3 = new System.Windows.Forms.Panel();
+      this.cbMergeTable = new System.Windows.Forms.ComboBox();
+      this.btnMergeTable = new System.Windows.Forms.Button();
       this.txbTotalPrice = new System.Windows.Forms.TextBox();
       this.cbSwitchTable = new System.Windows.Forms.ComboBox();
       this.btnSwitchTable = new System.Windows.Forms.Button();
@@ -55,8 +57,6 @@
       this.cbFood = new System.Windows.Forms.ComboBox();
       this.cbCategory = new System.Windows.Forms.ComboBox();
       this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-      this.btnMergeTable = new System.Windows.Forms.Button();
-      this.cbMergeTable = new System.Windows.Forms.ComboBox();
       this.menuStrip1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel3.SuspendLayout();
@@ -191,6 +191,24 @@
       this.panel3.Size = new System.Drawing.Size(338, 52);
       this.panel3.TabIndex = 3;
       // 
+      // cbMergeTable
+      // 
+      this.cbMergeTable.FormattingEnabled = true;
+      this.cbMergeTable.Location = new System.Drawing.Point(84, 28);
+      this.cbMergeTable.Name = "cbMergeTable";
+      this.cbMergeTable.Size = new System.Drawing.Size(75, 21);
+      this.cbMergeTable.TabIndex = 10;
+      // 
+      // btnMergeTable
+      // 
+      this.btnMergeTable.Location = new System.Drawing.Point(84, 3);
+      this.btnMergeTable.Name = "btnMergeTable";
+      this.btnMergeTable.Size = new System.Drawing.Size(75, 23);
+      this.btnMergeTable.TabIndex = 9;
+      this.btnMergeTable.Text = "Gộp bàn";
+      this.btnMergeTable.UseVisualStyleBackColor = true;
+      this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
+      // 
       // txbTotalPrice
       // 
       this.txbTotalPrice.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,24 +318,6 @@
       this.flpTable.Name = "flpTable";
       this.flpTable.Size = new System.Drawing.Size(429, 431);
       this.flpTable.TabIndex = 5;
-      // 
-      // btnMergeTable
-      // 
-      this.btnMergeTable.Location = new System.Drawing.Point(84, 3);
-      this.btnMergeTable.Name = "btnMergeTable";
-      this.btnMergeTable.Size = new System.Drawing.Size(75, 23);
-      this.btnMergeTable.TabIndex = 9;
-      this.btnMergeTable.Text = "Gộp bàn";
-      this.btnMergeTable.UseVisualStyleBackColor = true;
-      this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
-      // 
-      // cbMergeTable
-      // 
-      this.cbMergeTable.FormattingEnabled = true;
-      this.cbMergeTable.Location = new System.Drawing.Point(84, 28);
-      this.cbMergeTable.Name = "cbMergeTable";
-      this.cbMergeTable.Size = new System.Drawing.Size(75, 21);
-      this.cbMergeTable.TabIndex = 10;
       // 
       // FTableManager
       // 
