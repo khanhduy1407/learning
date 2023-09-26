@@ -1,0 +1,11 @@
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\Lab03-03.exe.config
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\Lab03-03.exe
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\Lab03-03.pdb
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.csproj.AssemblyReference.cache
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03_03.Form1.resources
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03_03.Form2.resources
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03_03.Properties.Resources.resources
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.csproj.GenerateResource.cache
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.csproj.CoreCompileInputs.cache
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.exe
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.pdb
