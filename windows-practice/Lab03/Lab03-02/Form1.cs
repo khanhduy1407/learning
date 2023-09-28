@@ -168,5 +168,35 @@ namespace Lab03_02
         richText.SelectionFont = new Font(richText.SelectionFont, richText.SelectionFont.Style ^ FontStyle.Underline);
       }
     }
+
+    private void comboBoxFont_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      // Lấy font được chọn từ ComboBox
+      string selectedFontName = comboBoxFont.SelectedItem.ToString();
+
+      // Lấy font hiện tại của RichTextBox
+      Font currentFont = richText.SelectionFont;
+
+      // Tạo một font mới với tên font được chọn và kích thước từ font hiện tại
+      Font newFont = new Font(selectedFontName, currentFont.Size);
+
+      // Thiết lập font mới cho vùng được chọn trong RichTextBox
+      richText.SelectionFont = newFont;
+    }
+
+    private void comboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      // Lấy kích thước được chọn từ ComboBox
+      int selectedSize = int.Parse(comboBoxSize.SelectedItem.ToString());
+
+      // Lấy font hiện tại của RichTextBox
+      Font currentFont = richText.SelectionFont;
+
+      // Tạo một font mới với kích thước được chọn và font từ font hiện tại
+      Font newFont = new Font(currentFont.FontFamily, selectedSize);
+
+      // Thiết lập font mới cho vùng được chọn trong RichTextBox
+      richText.SelectionFont = newFont;
+    }
   }
 }

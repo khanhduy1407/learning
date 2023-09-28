@@ -12,6 +12,8 @@ namespace Lab03_03
 {
   public partial class Form2 : Form
   {
+    public event EventHandler ThemSV;
+
     public Form2()
     {
       InitializeComponent();
@@ -31,7 +33,7 @@ namespace Lab03_03
       comboBoxKhoa.DataSource = danhSachKhoa;
     }
 
-    private void exitBtn_Click(object sender, EventArgs e)
+    private void addBtn_Click(object sender, EventArgs e)
     {
       // Kiểm tra thông tin bắt buộc
       if (string.IsNullOrEmpty(txtMaSo.Text) || string.IsNullOrEmpty(txtTenSinhVien.Text) || string.IsNullOrEmpty(txtDiem.Text))
@@ -41,15 +43,22 @@ namespace Lab03_03
       }
 
       // Kiểm tra Mã số Sinh Viên trùng
-      string maSoMoi = txtMaSo.Text;
-      DataGridView dgvForm1 = Application.OpenForms["Form1"].Controls["dataGridView1"] as DataGridView;
-      foreach (DataGridViewRow row in dgvForm1.Rows)
+      string maSo = txtMaSo.Text;
+      bool maSoTrung = CheckMaSoTrung(maSo);
+      if (maSoTrung)
       {
-        if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() == maSoMoi)
+        // Hiện thông báo khi mã số trùng
+        DialogResult dialogResult = MessageBox.Show("Mã số sinh viên đã tồn tại. Bạn có muốn thêm sinh viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (dialogResult == DialogResult.Yes)
         {
-          MessageBox.Show("Mã số Sinh Viên đã tồn tại trong DataGridView ở Form 1.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-          return;
+          // Nếu người dùng chọn "Yes", trỏ chuột vào TextBox mã số
+          txtMaSo.Focus();
+          txtMaSo.SelectAll();
+        } else
+        {
+          this.Close();
         }
+        return;
       }
 
       // Lấy dữ liệu khoa từ ComboBox
@@ -63,15 +72,38 @@ namespace Lab03_03
         return;
       }
 
-      // Thêm dữ liệu vào DataGridView ở Form 1
-      dgvForm1.Rows.Add(dgvForm1.Rows.Count, txtMaSo.Text, txtTenSinhVien.Text, khoa, txtDiem.Text);
+      // Thêm dữ liệu vào database
+      SVContext context = new SVContext();
+      SV sv = new SV
+      {
+        MaSV = maSo,
+        TenSV = txtTenSinhVien.Text,
+        Khoa = khoa,
+        DiemTB = diem
+      };
+      context.SVs.Add(sv);
+      context.SaveChanges();
 
       // Đóng Form 2 và quay lại Form chính
       MessageBox.Show("Thêm Sinh Viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+      ThemSV?.Invoke(this, EventArgs.Empty);
       this.Close();
     }
 
-    private void addBtn_Click(object sender, EventArgs e)
+    private bool CheckMaSoTrung(string maSo)
+    {
+      DataGridView dgv = (DataGridView)Application.OpenForms["Form1"].Controls["dataGridView1"];
+      foreach (DataGridViewRow row in dgv.Rows)
+      {
+        if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() == maSo)
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    private void exitBtn_Click(object sender, EventArgs e)
     {
       if (MessageBox.Show("Bạn có chắc muốn hủy thêm SV không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
       {

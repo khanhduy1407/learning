@@ -9,3 +9,8 @@ D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.csproj.
 D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.csproj.CoreCompileInputs.cache
 D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.exe
 D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.pdb
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\EntityFramework.dll
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\EntityFramework.SqlServer.dll
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\EntityFramework.xml
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspace\Learning\windows-practice\Lab03\Lab03-03\obj\Debug\Lab03-03.csproj.CopyComplete

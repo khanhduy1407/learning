@@ -30,15 +30,14 @@
     {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-      this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-      this.richText = new System.Windows.Forms.RichTextBox();
       this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.địnhDạngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tạoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mởTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.lưuNộiDungVănBảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.địnhDạngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStrip1 = new System.Windows.Forms.ToolStrip();
       this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
       this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,6 +47,7 @@
       this.italicButton = new System.Windows.Forms.ToolStripButton();
       this.underlineButton = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+      this.richText = new System.Windows.Forms.RichTextBox();
       this.menuStrip1.SuspendLayout();
       this.toolStrip1.SuspendLayout();
       this.SuspendLayout();
@@ -63,36 +63,6 @@
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
-      // toolStrip1
-      // 
-      this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripSeparator2,
-            this.comboBoxFont,
-            this.comboBoxSize,
-            this.boldButton,
-            this.italicButton,
-            this.underlineButton,
-            this.toolStripSeparator3});
-      this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-      this.toolStrip1.Name = "toolStrip1";
-      this.toolStrip1.Size = new System.Drawing.Size(593, 25);
-      this.toolStrip1.TabIndex = 1;
-      this.toolStrip1.Text = "toolStrip1";
-      // 
-      // richText
-      // 
-      this.richText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.richText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.richText.Location = new System.Drawing.Point(12, 52);
-      this.richText.Name = "richText";
-      this.richText.Size = new System.Drawing.Size(569, 307);
-      this.richText.TabIndex = 2;
-      this.richText.Text = "";
-      // 
       // hệThốngToolStripMenuItem
       // 
       this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -104,13 +74,6 @@
       this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
       this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
       this.hệThốngToolStripMenuItem.Text = "Hệ thống";
-      // 
-      // địnhDạngToolStripMenuItem
-      // 
-      this.địnhDạngToolStripMenuItem.Name = "địnhDạngToolStripMenuItem";
-      this.địnhDạngToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-      this.địnhDạngToolStripMenuItem.Text = "Định dạng";
-      this.địnhDạngToolStripMenuItem.Click += new System.EventHandler(this.địnhDạngToolStripMenuItem_Click);
       // 
       // tạoToolStripMenuItem
       // 
@@ -147,6 +110,31 @@
       this.thoátToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
       this.thoátToolStripMenuItem.Text = "Thoát";
       // 
+      // địnhDạngToolStripMenuItem
+      // 
+      this.địnhDạngToolStripMenuItem.Name = "địnhDạngToolStripMenuItem";
+      this.địnhDạngToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+      this.địnhDạngToolStripMenuItem.Text = "Định dạng";
+      this.địnhDạngToolStripMenuItem.Click += new System.EventHandler(this.địnhDạngToolStripMenuItem_Click);
+      // 
+      // toolStrip1
+      // 
+      this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripSeparator2,
+            this.comboBoxFont,
+            this.comboBoxSize,
+            this.boldButton,
+            this.italicButton,
+            this.underlineButton,
+            this.toolStripSeparator3});
+      this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+      this.toolStrip1.Name = "toolStrip1";
+      this.toolStrip1.Size = new System.Drawing.Size(593, 25);
+      this.toolStrip1.TabIndex = 1;
+      this.toolStrip1.Text = "toolStrip1";
+      // 
       // toolStripButton1
       // 
       this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -176,11 +164,13 @@
       // 
       this.comboBoxFont.Name = "comboBoxFont";
       this.comboBoxFont.Size = new System.Drawing.Size(121, 25);
+      this.comboBoxFont.SelectedIndexChanged += new System.EventHandler(this.comboBoxFont_SelectedIndexChanged);
       // 
       // comboBoxSize
       // 
       this.comboBoxSize.Name = "comboBoxSize";
       this.comboBoxSize.Size = new System.Drawing.Size(121, 25);
+      this.comboBoxSize.SelectedIndexChanged += new System.EventHandler(this.comboBoxSize_SelectedIndexChanged);
       // 
       // boldButton
       // 
@@ -216,6 +206,18 @@
       // 
       this.toolStripSeparator3.Name = "toolStripSeparator3";
       this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+      // 
+      // richText
+      // 
+      this.richText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.richText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.richText.Location = new System.Drawing.Point(12, 52);
+      this.richText.Name = "richText";
+      this.richText.Size = new System.Drawing.Size(569, 307);
+      this.richText.TabIndex = 2;
+      this.richText.Text = "";
       // 
       // Form1
       // 

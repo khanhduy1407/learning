@@ -43,7 +43,7 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(12, 9);
+      this.label1.Location = new System.Drawing.Point(12, 15);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(86, 13);
       this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
       // 
       // txtMaSo
       // 
-      this.txtMaSo.Location = new System.Drawing.Point(72, 25);
+      this.txtMaSo.Location = new System.Drawing.Point(104, 12);
       this.txtMaSo.Name = "txtMaSo";
       this.txtMaSo.Size = new System.Drawing.Size(152, 20);
       this.txtMaSo.TabIndex = 1;
@@ -59,7 +59,7 @@
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(223, 88);
+      this.label2.Location = new System.Drawing.Point(12, 41);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(74, 13);
       this.label2.TabIndex = 2;
@@ -67,15 +67,15 @@
       // 
       // txtTenSinhVien
       // 
-      this.txtTenSinhVien.Location = new System.Drawing.Point(282, 65);
+      this.txtTenSinhVien.Location = new System.Drawing.Point(104, 38);
       this.txtTenSinhVien.Name = "txtTenSinhVien";
-      this.txtTenSinhVien.Size = new System.Drawing.Size(172, 20);
+      this.txtTenSinhVien.Size = new System.Drawing.Size(152, 20);
       this.txtTenSinhVien.TabIndex = 3;
       // 
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(72, 131);
+      this.label3.Location = new System.Drawing.Point(12, 67);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(32, 13);
       this.label3.TabIndex = 4;
@@ -85,15 +85,15 @@
       // 
       this.comboBoxKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.comboBoxKhoa.FormattingEnabled = true;
-      this.comboBoxKhoa.Location = new System.Drawing.Point(110, 114);
+      this.comboBoxKhoa.Location = new System.Drawing.Point(104, 64);
       this.comboBoxKhoa.Name = "comboBoxKhoa";
-      this.comboBoxKhoa.Size = new System.Drawing.Size(166, 21);
+      this.comboBoxKhoa.Size = new System.Drawing.Size(152, 21);
       this.comboBoxKhoa.TabIndex = 5;
       // 
       // label4
       // 
       this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(46, 183);
+      this.label4.Location = new System.Drawing.Point(12, 94);
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(49, 13);
       this.label4.TabIndex = 6;
@@ -101,17 +101,17 @@
       // 
       // txtDiem
       // 
-      this.txtDiem.Location = new System.Drawing.Point(102, 175);
+      this.txtDiem.Location = new System.Drawing.Point(104, 91);
       this.txtDiem.Name = "txtDiem";
-      this.txtDiem.Size = new System.Drawing.Size(100, 20);
+      this.txtDiem.Size = new System.Drawing.Size(152, 20);
       this.txtDiem.TabIndex = 7;
       // 
       // addBtn
       // 
       this.addBtn.BackColor = System.Drawing.Color.LightGreen;
-      this.addBtn.Location = new System.Drawing.Point(250, 150);
+      this.addBtn.Location = new System.Drawing.Point(12, 117);
       this.addBtn.Name = "addBtn";
-      this.addBtn.Size = new System.Drawing.Size(194, 158);
+      this.addBtn.Size = new System.Drawing.Size(97, 30);
       this.addBtn.TabIndex = 8;
       this.addBtn.Text = "Thêm Mới";
       this.addBtn.UseVisualStyleBackColor = false;
@@ -120,9 +120,9 @@
       // exitBtn
       // 
       this.exitBtn.BackColor = System.Drawing.Color.Tomato;
-      this.exitBtn.Location = new System.Drawing.Point(635, 370);
+      this.exitBtn.Location = new System.Drawing.Point(186, 120);
       this.exitBtn.Name = "exitBtn";
-      this.exitBtn.Size = new System.Drawing.Size(243, 210);
+      this.exitBtn.Size = new System.Drawing.Size(70, 27);
       this.exitBtn.TabIndex = 9;
       this.exitBtn.Text = "Thoát";
       this.exitBtn.UseVisualStyleBackColor = false;
@@ -132,7 +132,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(470, 322);
+      this.ClientSize = new System.Drawing.Size(271, 157);
       this.Controls.Add(this.exitBtn);
       this.Controls.Add(this.addBtn);
       this.Controls.Add(this.txtDiem);
