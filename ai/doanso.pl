@@ -14,8 +14,8 @@ start_game :-
     nl,
     write('*********************************'), nl,
     write('  Tro choi doan so bat dau!'), nl,
-    write('  Toi da chon mot so tu 1 den 100.'), nl,
-    write('  Hay doan so do.'), nl,
+    write('  Bob da chon mot so tu 1 den 100.'), nl,
+    write('  Ban hay doan so do.'), nl,
     write('*********************************'), nl,
     play_game.
 
@@ -47,19 +47,19 @@ process_guess(Guess) :-
     answer(Answer),
     Guess =:= Answer,
     write('  *********************************'), nl,
-    write('  Chuc mung ban da doan dung!'), nl,
+    write('  Chuc mung ban da doan dung so cua Bob!'), nl,
     write('  *********************************'), nl,
     restart_game.
 process_guess(Guess) :-
     answer(Answer),
     Guess < Answer,
-    write('  So cua toi lon hon '), write(Guess), nl,
+    write('  So cua Bob lon hon '), write(Guess), nl,
     increment_guesses,
     play_game.
 process_guess(Guess) :-
     answer(Answer),
     Guess > Answer,
-    write('  So cua toi nho hon '), write(Guess), nl,
+    write('  So cua Bob nho hon '), write(Guess), nl,
     increment_guesses,
     play_game.
 
@@ -92,7 +92,7 @@ play_game_smart_ai :-
     N < Max,
     answer(Answer),
     super_smart_ai_guess(Answer, 1, 100, Guess),
-    write('  Toi doan: '), write(Guess), nl,
+    write('  Alice goi y so dau tien: '), write(Guess), nl,
     process_guess(Guess),
     play_game_smart_ai.
 play_game_smart_ai :-
@@ -100,7 +100,7 @@ play_game_smart_ai :-
     max_guesses(Max),
     N =:= Max,
     write('  *********************************'), nl,
-    write('  Ban da het so lan doan. So cua toi la: '),
+    write('  Ban da het luot doan. So cua Bob la: '),
     answer(Answer),
     write(Answer), nl,
     write('  Chuc ban may man lan sau!'), nl,
@@ -116,17 +116,17 @@ start_game_smart_ai :-
     assertz(answer(X)),
     write('*********************************'), nl,
     write('  Tro choi doan so bat dau!'), nl,
-    write('  Toi da chon mot so tu 1 den 100.'), nl,
-    write('  Hay doan so do.'), nl,
+    write('  Bob da chon mot so tu 1 den 100.'), nl,
+    write('  Ban hay doan so do.'), nl,
     write('*********************************'), nl,
     play_game_smart_ai.
 
 % Khởi động lại trò chơi với AI thông minh
 restart_game :-
     write('  *********************************'), nl,
-    write('  Ban co muon choi lai khong? (yes/no): '),
+    write('  Ban co muon choi lai khong? (co/khong): '),
     read(Choice),
-    (Choice = 'yes' -> nl, start_game_smart_ai ; write('  Cam on ban da tham gia tro choi!'), nl,
+    (Choice = 'co' -> nl, start_game_smart_ai ; write('  Cam on ban da tham gia tro choi!'), nl,
     write('*********************************'), nl, halt).
 
 % Chạy trò chơi với AI thông minh
