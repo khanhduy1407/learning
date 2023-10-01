@@ -35,7 +35,7 @@ play_game :-
     max_guesses(Max),
     N =:= Max,
     write('*********************************'), nl,
-    write('  Ban da het so lan doan. So cua toi la: '),
+    write('  Ban da het so lan doan. So cua Bob chon la: '),
     answer(Answer),
     write(Answer), nl,
     write('  Chuc ban may man lan sau!'), nl,
